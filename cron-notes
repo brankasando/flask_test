@@ -1,0 +1,50 @@
+crontab -l -da vidim da li imam instaliran cron
+
+On Linux and macOS, the Crontab consists of six fields. The first five are reserved for the date and time of scheduled execution (minute, day of month, month of year, day of week), and the last field is reserved for a command to be executed.
+
+Neat — let’s use these patterns to schedule executions. Open up a Terminal window and execute pwd and which python3 commands to get the absolute paths to your script folder and Python:
+
+
+------------
+/home/branka        /home/branka/web_sracp2
+
+/usr/bin/python3    /home/branka/web_sracp2/bin/python3
+
+------------
+
+Once you have these, enter the crontab -e command to edit a cron file, or to make one if it doesn’t exist:
+
+za debug cron job-a:
+pgrep cron
+sudo systemctl status cron
+
+
+
+vim
+---
+i - za insert mode
+esc - exit insert mode
+:wq - write i quit
+
+crontab -l - list all scheduled jobs
+
+---------------
+
+https://crontab.guru/ -sajt za podesavanje vremena
+
+
+how to create a virtual environment for pyton project:
+--------------------------------------------------------
+instaliraj venv
+u cmd u folderu project kucamo: python3 -m venv env (env je ime koje ce da sadrzi virutal environment)
+u cmdu: source env/bin/activate - ovako aktiviram virutalni env svaki put kad otvorim pycharm
+
+pycharm ima svoj virtual environment, a venv je poseban paket koji se koristi ako ne koristimo pycharm, 
+mada mogu da ga koristim i u pycharm-u
+
+svaki put kad izadjem iz python projekta, daktivira se virutal env (ako je aktiviran preko paketa venv), 
+pa ga aktiviram svaki put na isti nacin sa source env/bin/activate
+
+venv nema kao renv da lock-ujem verzije, niti se to push-uje gitom, nego se 
+radi freeze requirements...
+
