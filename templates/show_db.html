@@ -6,19 +6,85 @@
 
 {% block body %}
 
-<label for="cars">Choose a car:</label>
+
+<!--<label for="col1">Choose a col1:</label>
 
 <form method="GET" action="/show_db">
-    <select name="cars" id="cars">
-    {% for item in ddl %}
-  <option value="{{ item[0] }}">{{ item[0] }}</option>
-    {% endfor %}
-    <br>
-    <input type="submit" value="Izaberi">
-</select>
+    <select name="col1" id="col1">
+        {% for item in ddl %}
+        <option value="{{ item[0] }}"   {% if item[0]|int == c|int %} selected {% endif %}
 
+
+        >{{ item[0] }}</option>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Izaberi">
+    </select>
+
+</form>
+<br>
+<table border="1" class="dataframe">
+    <thead>
+    <tr style="text-align: right;">
+        <th>col1</th>
+        <th>col2</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+    <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>-->
+<!--<p>{{c}}</p>-->
+
+
+<div class="container">
+
+
+<form method="GET" action="/show_db">
+
+    <div class="form-group">
+        <br>
+        <label><h4>Izaberi ligu</h4></label>
+        <select name="col1" id="col1" class="form-control">
+            {% for item in ddl %}
+            <option value="{{ item[0] }}"   {% if item[0]|int == c|int %} selected {% endif %}>
+<!-- itemp[0] je prvi clan tupple-a, jer je item tupple, pa zato to uzimam kao vrednost-->
+            {{ item[0] }}</option>
+            {% endfor %}
+            <br>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Izaberi</button>
 </form>
 
 
+<h3 class="p-3">Prikaz tabele</h3>
+<table class="table text-center" border="1" class="dataframe">
+    <thead>
+    <tr style="">
+        <th>col1</th>
+        <th>col2</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+    <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{{c}}
 
 {% endblock %}
+
+
+
+
+</div>
